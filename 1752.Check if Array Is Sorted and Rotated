@@ -1,0 +1,14 @@
+bool check(int a[]){
+    int count=0;
+    for(int i=1;i<5;i++){
+        if(a[i-1]>a[i]){ //for rotated array {3,4,5,1,2}
+            count++;
+        }
+    }
+    if(a[4]>a[0]){ ////for array like {1,2,3,4,5};
+        count++;
+    }
+
+
+    return count<=1;  //<=1 for array like{1,1,1} 
+}
