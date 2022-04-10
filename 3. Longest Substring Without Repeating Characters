@@ -1,0 +1,45 @@
+class Solution {
+public:
+    int check(int a[],int n){
+        for(int i=0;i<n;i++){
+            if(a[i]>1){
+                return 0;        
+        }
+        
+    }
+        return 1;
+    }
+    int lengthOfLongestSubstring(string s) {
+        int hash[256]={0};
+        int max=0;
+        int j=0;
+        int start=0;
+        for(int i=0;i<s.length();i++){
+            int index=s[i];
+            hash[index]++;
+            int c=check(hash,256);
+            
+        
+            if(c==0){
+                for(int i=0;i<256;i++){
+                    hash[i]=0;
+                }
+                int ne=j;
+                if(ne>max){
+                    max=ne;
+                }
+                j=0;
+                i=start;
+                start++; //to start again from very next element(for ex:at first mapping was started from s[0],from next turn it will start from s[1] and soo onn)
+                
+            }else{
+                j++;
+                if(j>max){
+                    max=j;
+                }
+            }
+            }
+        return max;
+    }
+    
+};
